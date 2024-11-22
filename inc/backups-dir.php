@@ -7,7 +7,7 @@ if (!file_exists(WPSXB_PLUGIN_BACKUPS_DIR)) {
     mkdir(WPSXB_PLUGIN_BACKUPS_DIR, 0755, true);
 }
 
-$zip_files = glob(WPSXB_PLUGIN_BACKUPS_DIR . '/*.zip');
+$zip_files = glob(WPSXB_PLUGIN_BACKUPS_DIR . '*.zip');
 
 if (!defined('WPSXB_BACKUP_FILES_EXISTS')) {
     if (!empty($zip_files)) {

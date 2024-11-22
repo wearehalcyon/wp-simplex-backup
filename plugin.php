@@ -50,7 +50,7 @@ if (!defined('WPSXB_PAGE_SLUG')) {
 
 // Plugin backups dir path
 if (!defined('WPSXB_PLUGIN_BACKUPS_DIR')) {
-    define('WPSXB_PLUGIN_BACKUPS_DIR', WP_CONTENT_DIR . '/wpsxb-backups');
+    define('WPSXB_PLUGIN_BACKUPS_DIR', WP_CONTENT_DIR . '/wpsxb-backups/');
 }
 
 // Plugin backups url

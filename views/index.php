@@ -14,6 +14,12 @@
                         <?php echo WPSXB_PLUGIN_AUTHOR_NAME; ?> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </p>
+                <?php if (isset($_GET['status'])) : ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?php echo __('Backup file was deleted successfully!'); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
                 <div class="card mw-100 pt-4">
                     <img src="<?php echo WPSXB_PLUGIN_URL . 'assets/images/intake-digital-logo.svg'; ?>"
                         alt="INTAKE Digital Logo"
