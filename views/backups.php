@@ -21,6 +21,11 @@
     <div class="progress progress-shadowed mt-3">
         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
     </div>
+    <code>
+        <pre>
+            <?php print_r(WPSXB_BACKUP_FILES_LIST); ?>
+        </pre>
+    </code>
     <?php if (WPSXB_BACKUP_FILES_EXISTS) : ?>
         <table class="table table-bordered mt-4">
             <thead>
@@ -59,9 +64,10 @@
                     <td><?php echo $value['date_created']; ?></td>
                     <td>
                         <a type="button"
+                                href="<?php echo WPSXB_PLUGIN_BACKUPS_URI . '/' . $key; ?>"
                                 class="btn btn-success btn-sm"
-                                data-name="wpsxb_files_34579847539"
                                 title="<?php echo __('Download'); ?>"
+                                download
                         >
                             <i class="fa-solid fa-download"></i>
                         </a>

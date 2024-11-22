@@ -50,6 +50,7 @@ if (!defined('WPSXB_BACKUP_FILES_LIST')) {
                     'type' => $type,
                     'type_name' => ucfirst($type),
                     'size' => $size,
+                    'size_in_bytes' => $file_size,
                     'date_created' => $date_created,
                     'timestamp' => $timestamp, // Temporary point for sorting
                 ];
