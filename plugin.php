@@ -13,3 +13,7 @@
  * GitHub Plugin URI: https://github.com/wearehalcyon/wp-simplex-backup
  * Primary Branch: main
  */
+
+if ( ! defined( 'WPINC' ) ) {
+    die;
+}
