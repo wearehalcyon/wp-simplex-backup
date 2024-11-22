@@ -1,6 +1,7 @@
 'use strict';
 
 jQuery(document).ready(function($){
+    // Tabs url changer
     $('.panel-tabs .nav-item button').on('click', function(){
         let target = $(this).data('target-item'),
             url = new URL(window.location.href);
