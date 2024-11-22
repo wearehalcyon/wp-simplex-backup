@@ -40,3 +40,4 @@ if (!defined('WPSXB_PAGE_SLUG')) {
 require_once WPSXB_PLUGIN_PATH . 'inc/assets.php';
 require_once WPSXB_PLUGIN_PATH . 'inc/menu.php';
 require_once WPSXB_PLUGIN_PATH . 'inc/backups-dir.php';
+require_once WPSXB_PLUGIN_PATH . 'inc/action-backup.php';

@@ -51,6 +51,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="text-center mt-3">
+                    <p class="mb-0"><?php echo __('Thanks for choosing our plugin! Have a fun :)'); ?></p>
+                </div>
             </div>
         </div>
     </div>
