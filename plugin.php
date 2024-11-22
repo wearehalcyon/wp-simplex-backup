@@ -8,7 +8,7 @@
  * @license GPL-3.0 license
  * License: GPL-3.0
  * Network: true
- * Requires PHP: 8.2
+ * Requires PHP: 8.1
  * Requires at least: 6.7.1
  * GitHub Plugin URI: https://github.com/wearehalcyon/wp-simplex-backup
  * Primary Branch: main
@@ -17,3 +17,9 @@
 if ( ! defined( 'WPINC' ) ) {
     die;
 }
+
+if (!defined('WPSXB_PLUGIN_PATH')) {
+    define('WPSXB_PLUGIN_PATH', ABSPATH . 'wp-content/plugins/wp-simplex-backup/');
+}
+
+require_once WPSXB_PLUGIN_PATH . 'inc/assets.php';
