@@ -67,7 +67,7 @@
                             <i class="fa-solid fa-download"></i>
                         </a>
                         <a type="button"
-                            href="<?php echo admin_url('/tools.php?page=' . WPSXB_PAGE_SLUG . '&cation=delete&file=' . $key); ?>"
+                            href="<?php echo admin_url('/tools.php?page=' . WPSXB_PAGE_SLUG . '&action=delete&file=' . $key); ?>"
                             data-type="<?php echo $value['type_name']; ?>"
                             class="btn btn-danger btn-sm delete-backup"
                             title="<?php echo __('Delete'); ?>"

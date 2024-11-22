@@ -25,12 +25,15 @@ function wpsxb_add_plugin_scripts_and_styles(){
             echo '
                 <script id="wpsxb-inline-scripts">
                     jQuery(document).ready(function($){
-                        $(".delete-backup").on("click", function(){
+                        $(".delete-backup").on("click", function(event){
+                            event.preventDefault();
                             let type = $(this).data("type");
                             if (confirm("' . __('Are you sure want to delete this " + type + " Backup file?') . '") == true) {
-                                return true;
+                                $(this).html("<img src=\'' . WPSXB_PLUGIN_URL . 'assets/images/bars-rotate-fade-white-36.svg\' alt=\'Spinner\' width=\'16\' height=\'16\'>");
+                                setTimeout(() => {
+                                    window.location.href = $(this).attr("href");
+                                }, 2000);
                             }
-                            return false;
                         });
                     });
                 </script>
