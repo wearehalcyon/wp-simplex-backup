@@ -21,5 +21,22 @@ if ( ! defined( 'WPINC' ) ) {
 if (!defined('WPSXB_PLUGIN_PATH')) {
     define('WPSXB_PLUGIN_PATH', ABSPATH . 'wp-content/plugins/wp-simplex-backup/');
 }
+if (!defined('WPSXB_PLUGIN_URL')) {
+    define('WPSXB_PLUGIN_URL', plugin_dir_url(__FILE__));
+}
+if (!defined('WPSXB_PLUGIN_VERSION')) {
+    define('WPSXB_PLUGIN_VERSION', get_file_data(__FILE__, array('version' => 'Version'), false)['version']);
+}
+if (!defined('WPSXB_PLUGIN_AUTHOR_URL')) {
+    define('WPSXB_PLUGIN_AUTHOR_URL', get_file_data(__FILE__, array('author_url' => 'Author URI'), false)['author_url']);
+}
+if (!defined('WPSXB_PLUGIN_AUTHOR_NAME')) {
+    define('WPSXB_PLUGIN_AUTHOR_NAME', get_file_data(__FILE__, array('author_name' => 'Author'), false)['author_name']);
+}
+if (!defined('WPSXB_PAGE_SLUG')) {
+    define('WPSXB_PAGE_SLUG', 'wpsx-backup-and-migrations');
+}
 
 require_once WPSXB_PLUGIN_PATH . 'inc/assets.php';
+require_once WPSXB_PLUGIN_PATH . 'inc/menu.php';
+require_once WPSXB_PLUGIN_PATH . 'inc/backups-dir.php';

@@ -1,1 +1,24 @@
-/*# sourceMappingURL=plugin.css.map */
+@import "inc/bootstrap.min.css";
+@import "inc/all.min.css";
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.card {
+  background-color: #fff;
+  color: #000;
+}
+
+.divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.wp-heading-inline {
+  font-size: 32px !important;
+}/*# sourceMappingURL=plugin.css.map */
