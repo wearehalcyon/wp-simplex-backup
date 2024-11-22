@@ -36,6 +36,9 @@ if (!defined('WPSXB_PLUGIN_AUTHOR_NAME')) {
 if (!defined('WPSXB_PAGE_SLUG')) {
     define('WPSXB_PAGE_SLUG', 'wpsx-backup-and-migrations');
 }
+if (!defined('WPSXB_PLUGIN_BACKUPS_DIR')) {
+    define('WPSXB_PLUGIN_BACKUPS_DIR', WP_CONTENT_DIR . '/wpsxb-backups');
+}
 
 require_once WPSXB_PLUGIN_PATH . 'inc/assets.php';
 require_once WPSXB_PLUGIN_PATH . 'inc/menu.php';
