@@ -18,5 +18,23 @@ function wpsxb_add_plugin_scripts_and_styles(){
         $script_bootstrap_file_url = WPSXB_PLUGIN_URL . 'assets/js/bootstrap.min.js';
         wp_enqueue_script('wpsxb-scripts-bootstrap', $script_bootstrap_file_url, ['jquery'], filemtime($script_bootstrap_file), true);
         wp_enqueue_script('wpsxb-scripts', $script_file_url, ['jquery'], filemtime($script_file), true);
+
+        // Inline scripts and styles
+        add_action('admin_print_footer_scripts', 'wpsxb_inline_footer_scripts', 99);
+        function wpsxb_inline_footer_scripts(){
+            echo '
+                <script id="wpsxb-inline-scripts">
+                    jQuery(document).ready(function($){
+                        $(".delete-backup").on("click", function(){
+                            let type = $(this).data("type");
+                            if (confirm("' . __('Are you sure want to delete this " + type + " Backup file?') . '") == true) {
+                                return true;
+                            }
+                            return false;
+                        });
+                    });
+                </script>
+            ';
+        }
     }
 }
