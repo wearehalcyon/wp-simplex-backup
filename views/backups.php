@@ -21,16 +21,12 @@
     <div class="progress progress-shadowed mt-3">
         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
     </div>
-    <code>
-        <pre>
-        <?php print_r(WPSXB_BACKUP_FILES_LIST); ?>
-        </pre>
-    </code>
     <?php if (WPSXB_BACKUP_FILES_EXISTS) : ?>
         <table class="table table-bordered mt-4">
             <thead>
                 <tr>
                     <th class="text-center" scope="col" style="width: 60px;">#</th>
+                    <th scope="col" style="width: 60px;"></th>
                     <th scope="col"><?php echo __('Type'); ?></th>
                     <th scope="col"><?php echo __('Size'); ?></th>
                     <th scope="col"><?php echo __('Date Created'); ?></th>
@@ -41,9 +37,26 @@
                 <?php $i = 1; foreach (WPSXB_BACKUP_FILES_LIST as $key => $value) : ?>
                 <tr>
                     <th class="text-center" scope="row"><?php echo $i++; ?></th>
-                    <td><?php echo '<i class="fa-solid fa-file-code"></i> ' . __('Files'); ?></td>
-                    <td>320 Mb</td>
-                    <td>November 21, 2024 at 21:00</td>
+                    <td class="text-center">
+                        <?php
+                            if ($value['type'] == 'files') {
+                                echo '<i class="fa-solid fa-file-code"></i> ';
+                            } else {
+                                echo '<i class="fa-solid fa-database"></i> ';
+                            }
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                            if ($value['type'] == 'files') {
+                                echo $value['type_name'];
+                            } else {
+                                echo $value['type_name'];
+                            }
+                        ?>
+                    </td>
+                    <td><?php echo $value['size']; ?></td>
+                    <td><?php echo $value['date_created']; ?></td>
                     <td>
                         <a type="button"
                                 class="btn btn-success btn-sm"
@@ -58,23 +71,6 @@
                     </td>
                 </tr>
                 <?php endforeach; ?>
-                <!-- <tr>
-                    <th class="text-center" scope="row">2</th>
-                    <td><?php echo '<i class="fa-solid fa-database"></i> ' . __('Database'); ?></td>
-                    <td>322 Kb</td>
-                    <td>November 21, 2024 at 21:05</td>
-                    <td>
-                        <a type="button"
-                                class="btn btn-success btn-sm"
-                                data-name="wpsxb_files_34579847564"
-                                title="<?php echo __('Download'); ?>">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                        <a type="button" class="btn btn-danger btn-sm" title="<?php echo __('Delete'); ?>">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </a>
-                    </td>
-                </tr> -->
             </tbody>
         </table>
     <?php else : ?>

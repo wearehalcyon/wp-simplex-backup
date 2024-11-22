@@ -22,34 +22,38 @@ if (!defined('WPSXB_BACKUP_FILES_LIST')) {
         $detailed_files = [];
         foreach ($zip_files as $file_path) {
             $file_name = basename($file_path);
-            $parts = explode('_', $file_name);
 
-            // Extract backup type (files/database) and date
-            $type = $parts[1];
-            $timestamp = (int)explode('.', $parts[2])[0];
+            if (preg_match('/^wpsxb_(files|database)_\d+\.zip$/', $file_name)) {
+                $parts = explode('_', $file_name);
 
-            // File size
-            $file_size = filesize($file_path);
-            if ($file_size < 1024) {
-                $size = $file_size . ' bytes';
-            } elseif ($file_size < 1048576) {
-                $size = round($file_size / 1024, 2) . ' Kb';
-            } elseif ($file_size < 1073741824) {
-                $size = round($file_size / 1048576, 2) . ' Mb';
-            } else {
-                $size = round($file_size / 1073741824, 2) . ' Gb';
+                // Extract backup type (files/database) and date
+                $type = $parts[1];
+                $timestamp = (int)explode('.', $parts[2])[0];
+
+                // File size
+                $file_size = filesize($file_path);
+                if ($file_size < 1024) {
+                    $size = $file_size . ' bytes';
+                } elseif ($file_size < 1048576) {
+                    $size = round($file_size / 1024, 2) . ' Kb';
+                } elseif ($file_size < 1073741824) {
+                    $size = round($file_size / 1048576, 2) . ' Mb';
+                } else {
+                    $size = round($file_size / 1073741824, 2) . ' Gb';
+                }
+
+                // Formatting date
+                $date_created = date('F j, Y \a\t g:i A', $timestamp);
+
+                // Create array
+                $detailed_files[$file_name] = [
+                    'type' => $type,
+                    'type_name' => ucfirst($type),
+                    'size' => $size,
+                    'date_created' => $date_created,
+                    'timestamp' => $timestamp, // Temporary point for sorting
+                ];
             }
-
-            // Formatting date
-            $date_created = date('F j, Y \a\t g:i A', $timestamp);
-
-            // Create array
-            $detailed_files[$file_name] = [
-                'type' => $type,
-                'size' => $size,
-                'date_created' => $date_created,
-                'timestamp' => $timestamp, // Temporary point for sorting
-            ];
         }
 
         // Sort files
